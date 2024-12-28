@@ -64,6 +64,12 @@ func MovingLeastSquare(period int, x, y []float64) ([]float64, []float64) {
 			n = float64(period)
 		}
 
+		if ((n * sumX2) - (sumX * sumX)) == 0 {
+			m[i] = 0
+			b[i] = (sumY - (m[i] * sumX)) / n
+			continue
+		}
+
 		m[i] = ((n * sumXY) - (sumX * sumY)) / ((n * sumX2) - (sumX * sumX))
 		b[i] = (sumY - (m[i] * sumX)) / n
 	}
